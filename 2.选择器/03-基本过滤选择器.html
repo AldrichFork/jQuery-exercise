@@ -49,6 +49,25 @@
           $("#btn10").click(function () {
               $(":animated").css("background-color","green");
           });
+        //     input type="text" value="请输入账号" defaultValue="请输入账号"
+        //     input type="text" value="请输入密码" defaultValue="请输入密码"
+          $("input[type='text']").on("blur focus",function () {
+              // 获取默认值
+             var dv= $(this).attr("defaultValue");
+             //如果当前元素被选中且文本框内元素为默认值，则清空文本框
+             if ($(this).is(":focus")){
+                 if ($(this).val()==dv){
+                     $(this).val("");
+                     $(this).css("color","#000");
+                 }
+             }else {
+                 //如果文本框内没有值，则填入默认值
+                 if ($(this).val().length == 0){
+                     $(this).val(dv);
+                     $(this).css("color","#999");
+                 };
+             };
+          })
       });
   </script>
 </head>
